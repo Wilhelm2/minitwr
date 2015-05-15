@@ -1,33 +1,34 @@
 extends layout
 
 block content
-	p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
-	h1 Mytwr
-	p(class="Connexion")
-		label(for="Pseudo") 
-		|Pseudo
-		input(type="text" name="Pseudo")
-		label(for="MDP")
-		|Mot de passe
-		input(type="password" name="MDP")
-		input(type="submit" value="Login")
+    p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
+    h1 Mytwr
+    p(class="Connexion")
+        label(for="Pseudo") 
+        |Pseudo
+        input(type="text" name="Pseudo")
+        label(for="MDP")
+        |Mot de passe
+        input(type="password" name="MDP")
+        input(type="submit" value="Login")
+        </br>
+        a(href="/ficheInscription" class="buttonConnexion") Pas encore inscrit ? Inscrivez vous !
 block content1
-	p salyt
+    p salyt
 block content2
-	label(for="Nom")
-	|Pseudo
-	input(type="text" id="Nom")
-	</br>
-	form(id="Formulaire")
-		textarea(id="Twrer" placeholder="Tweet")
-	input(type="submit" id="Envoyer" value="Envoyer")
-	#ZoneTexte
-	script
-		include ../public/javascripts/heure.js
+    label(for="Nom")
+    |Pseudo
+    input(type="text" id="Nom")
+    </br>
+    form(id="Formulaire")
+        textarea(id="Twrer" placeholder="Tweet")
+    input(type="submit" id="Envoyer" value="Envoyer")
+    #ZoneTexte
+    script
+        include ../public/javascripts/heure.js
 block content3
-	nav
-		ul
-			a(href="/Profil") Profil</br>
-			a(href="/views/Follower.jade") Follower</br>
-			a(href="/views/Following.jade") Following
-		
+    nav
+        ul
+            a(href="/Profil") Profil</br>
+            a(href="/views/Follower.jade") Follower</br>
+            a(href="/views/Following.jade") Following
