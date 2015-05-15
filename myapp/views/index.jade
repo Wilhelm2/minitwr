@@ -1,16 +1,33 @@
 extends layout
 
-block header
-    p <img src="images/Logo.jpg" alt="Merde" class="Logo"/>
-    h1 #{title}
-    <p class="Connexion"> Connexion
 block content
-    .navbar
-      a(href="Options.jade") Options
-    p.
-      Welcome to #{title} <br>
-      ecrit toi
-    a(href="http://google.com") Google
-
-block footer
-     Site fait par : Daniel
+	p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
+	h1 Mytwr
+	p(class="Connexion")
+		label(for="Pseudo") 
+		|Pseudo
+		input(type="text" name="Pseudo")
+		label(for="MDP")
+		|Mot de passe
+		input(type="password" name="MDP")
+		input(type="submit" value="Login")
+block content1
+	p salyt
+block content2
+	label(for="Nom")
+	|Pseudo
+	input(type="text" id="Nom")
+	</br>
+	form(id="Formulaire")
+		textarea(id="Twrer" placeholder="Tweet")
+	input(type="submit" id="Envoyer" value="Envoyer")
+	#ZoneTexte
+	script
+		include ../public/javascripts/heure.js
+block content3
+	nav
+		ul
+			a(href="/Profil") Profil</br>
+			a(href="/views/Follower.jade") Follower</br>
+			a(href="/views/Following.jade") Following
+		

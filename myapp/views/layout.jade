@@ -1,10 +1,13 @@
 doctype html
 html
-  head
-    title= MyTWR
-    link(rel='stylesheet', href='/stylesheets/style1.css')
-  body
-    block header
-    block content
-    block footer
-
+    head
+        include include/head.jade
+    body(onload='Hour()')
+        .header
+            block content
+        .PartieGauche
+            block content1
+        #Milieu
+            block content2
+        block content3
+        include include/footer.jade
