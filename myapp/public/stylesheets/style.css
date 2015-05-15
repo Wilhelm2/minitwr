@@ -1,6 +1,6 @@
 body
 {
-	background-image:url("/images/FondEcran.jpg");
+	background-image:url("/images/Fond.jpg");
 }
 .header
 {
@@ -17,6 +17,10 @@ body
 	float:right;
 	font-size:1em;
 	color:white;
+}
+.buttonConnexion
+{
+    color:white;
 }
 nav
 {
