@@ -1,0 +1,40 @@
+doctype html
+html
+    head
+        include include/head.jade
+    body
+        p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
+        h1 Mytwr
+        </br></br></br></br>
+        block content
+            form(method='post', action ='ficheInscription', accept-charset='UTF-8')
+                strong Votre Email : 
+                input(type="text" id = "Email" required = true)
+                </br>
+                strong Mot de passe : 
+                input(type="password" id = "Mdp" required = true)
+                </br>
+                strong Nom : 
+                input(type="text" id = "Nom" required = true)
+                </br>
+                strong Prenom : 
+                input(type="text" id = "Prenom" required = true)
+                </br>
+                strong Votre Nom d'utilisateur : 
+                input(type="text" id = "Utilisateur" required = true)
+                </br>
+                strong Âge : 
+                input(type="text" id = "Age" required = true)
+                </br>
+                strong Message profil : 
+                input(type="text" id = "Message" required = true)
+                </br>
+                strong Fonction : 
+                input(type="text" id = "Fonction" required = true)
+                </br>
+                button(type="submit" id="Inscription" required = true) Inscrire
+            #Test.
+                sasdfdsfsfsfsfsfsfsfsfsflutdddddddddddddddddddddddddd
+            
+            script
+                include ../public/javascripts/inscription.js
