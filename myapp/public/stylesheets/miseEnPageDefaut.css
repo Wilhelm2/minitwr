@@ -1,0 +1,23 @@
+body
+{
+	background-image:url("/images/Fond.jpg");
+}
+.header
+{
+	border-bottom: 2px solid black;
+	text-align: center;
+	height:110px;
+}
+.Logo
+{
+	float: left;
+}
+.footer
+{
+	text-align:right;
+	background-color:#0C93AF;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	width:100%;
+}
