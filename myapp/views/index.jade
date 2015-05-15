@@ -1,0 +1,16 @@
+extends layout
+
+block header
+    p <img src="images/Logo.jpg" alt="Merde" class="Logo"/>
+    h1 #{title}
+    <p class="Connexion"> Connexion
+block content
+    .navbar
+      a(href="Options.jade") Options
+    p.
+      Welcome to #{title} <br>
+      ecrit toi
+    a(href="http://google.com") Google
+
+block footer
+     Site fait par : Daniel
