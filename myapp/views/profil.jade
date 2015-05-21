@@ -2,6 +2,76 @@ doctype html
 html
     head
         include include/head.jade
-    body
-        p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
-        h1 Mytwr
+        link(rel='stylesheet', href='/stylesheets/style1.css')    
+        script
+            include ../public/javascripts/heure.js
+    body(onload='Hour()')
+        .header
+            block header
+                p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
+                h1 Mytwr
+        .topnavContainer
+            .container-fluid
+                .col-lg-2.col-ms-2
+                    p.
+                        #{session.user.nom}
+                        #{session.user.prenom}
+                .col-lg-4.col-lg-offset-6.text-right.col-ms-4.col-ms-offset-6.text-right
+                    a(href="/index") Retour page principale 
+                    a(href="/deconnecter") Déconnecter
+        .container
+            .row
+                .row.text-center
+                    strong Vous êtes : #{session.user.nom} #{session.user.prenom}#{session.user.mdp}
+                .row.text-center
+                    strong Votre adresse email est : #{session.user.email}
+                .row.text-center
+                    strong Vous avez : #{session.user.age} ans et vous êtes #{session.user.fonction}
+                .row.text-center
+                    strong Votre message de profil est : #{session.user.messageProfil}
+            .row
+                form(method='post', action ='modifierprofil', accept-charset='UTF-8')
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Votre Email : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="email" id = "Email" name="Email")
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Mot de passe : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left
+                            input(type="password" id = "Mdp" name="Mdp")
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Nom :
+                        .col-xs-2.col-sm-4.col-lg-6.text-left
+                            input(type="text" id = "Nom" name="Nom" )
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Prenom :
+                        .col-xs-2.col-sm-4.col-lg-6.text-left
+                            input(type="text" id = "Prenom" name="Prenom" )
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Âge : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left
+                            input(type="number" id = "Age" name="Age" min=0 max=100 )
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Message profil : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left
+                            textarea(type="text" id = "Message" name="Message" )
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Fonction :
+                        .col-xs-2.col-sm-4.col-lg-6.text-left
+                            input(type="text" id = "Fonction" name="Fonction" )
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Vérification (mot de passe) :
+                        .col-xs-2.col-sm-4.col-lg-6.text-left
+                            input(type="password" id = "Verification" name="Verification" required=true )
+                    .row
+                        .col-xs-4.col-sm-8.col-lg-12.text-center
+                            button(type="submit" id="Changer" ) Changer
+        include include/footer.jade

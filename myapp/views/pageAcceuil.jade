@@ -1,14 +1,49 @@
 doctype html
 html
     head
-        link(rel='stylesheet', href='/stylesheets/miseEnPageDefaut.css')
-    body
+        include include/head.jade
+        script
+            include ../public/javascripts/heure.js
+        link(rel='stylesheet', href='/stylesheets/acceuil.css')
+    body(onload='Hour()')
         .header
             p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
             h1 Mytwr
-        p Bonjour sur Minitwr ! Voulez-vous vous inscrire où voulez-vous continuer en tant que visiteur ?
-        
-        a(href="/ficheInscription" class="buttonConnexion") Je m'inscris !
-        </br>        
-        a(href="/index" class="buttonConnexion") Je préfère être un visiteur !
-        include include/footer.jade
+        .container
+            .row
+                .col-md-12.col-lg-12
+                    p Bonjour sur Mytwr !
+            .row                    
+                .col-md-12.col-lg-12
+                    span=err
+            .row
+                form(method = 'post', action ='connecter', acccept-charset='UTF-8')
+                    .col-ms-2          
+                        label.label-primary(for='NomUtilisateur') Votre Nom d'utilisateur : 
+                    .col-ms-2    
+                        input(type="text" id = "NomUtilisateur" name="NomUtilisateur" required = true)
+                    .col-ms-2
+                        label.label-primary(for='Mdp') Mot de passe :
+                    .col-ms-2
+                        input(type="password" id = "Mdp" name = "Mdp" required = true)
+                    .col-ms-2
+                        button.btn.btn-primary(type="submit" id = "connecter" required = true) Connecter
+            .row                
+                p Voulez-vous vous inscrire ou préférez-vous continuer en tant que visiteur ?       
+            .row    
+                a(href="/ficheInscription" class="buttonConnexion") Je m'inscris !
+            .row        
+                Je préfère être un visiteur !
+            .row    
+                form(method = 'post', action ='EntrerVisiteur', acccept-charset='UTF-8')
+                    .col-ms-2
+                        label.label-primary(for='nom') Mon nom sera :
+                    .col-ms-2
+                        input(type="text" name = "nom" required = true)
+                    .col-ms-2
+                        label.label-primary(for='prenom') Mon prénom sera :
+                    .col-ms-2
+                        input(type="text" name = "prenom" required = true)
+                    .col-ms-2
+                        button.btn.btn-primary(type="submit" id = "EntrerVisiteur" required = true) Connecter
+                include include/footer.jade

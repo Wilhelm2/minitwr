@@ -1,16 +1,10 @@
 .footer
-	block content4
-	script.
-		dat= new Date();document.write('<span id="Calk"></span>' + ' le ' + dat.getDate() + 			'/' + dat.getMonth() + '/' + dat.getFullYear());
-		var mongoose = require('mongoose');
-		mongoose.connect('mongodb://localhost/todoApp', function(err) {
-		if(err) 
-		{
-			console.log('connection error', err);
-		} 
-		else 
-		{
-			console.log('connection successful');
-		}
-		});
+    block content4
+    script.
+        dat= new Date();
+        j = dat.getDate();
+        m = dat.getMonth();        
+        if(j<10) j = '0'+j;
+        if(m<10) m = '0'+m;         
+        document.write('<span id="Calk"></span>' + ' le ' + j + '/' + m + '/' + dat.getFullYear());
 

@@ -2,39 +2,60 @@ doctype html
 html
     head
         include include/head.jade
+        script
+            include ../public/javascripts/heure.js
+        link(rel='stylesheet', href='/stylesheets/acceuil.css')
     body
-        p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
-        h1 Mytwr
-        </br></br></br></br>
-        block content
-            form(method='post', action ='ficheInscription', accept-charset='UTF-8')
-                strong Votre Email : 
-                input(type="text" id = "Email" required = true)
-                </br>
-                strong Mot de passe : 
-                input(type="password" id = "Mdp" required = true)
-                </br>
-                strong Nom : 
-                input(type="text" id = "Nom" required = true)
-                </br>
-                strong Prenom : 
-                input(type="text" id = "Prenom" required = true)
-                </br>
-                strong Votre Nom d'utilisateur : 
-                input(type="text" id = "Utilisateur" required = true)
-                </br>
-                strong Âge : 
-                input(type="text" id = "Age" required = true)
-                </br>
-                strong Message profil : 
-                input(type="text" id = "Message" required = true)
-                </br>
-                strong Fonction : 
-                input(type="text" id = "Fonction" required = true)
-                </br>
-                button(type="submit" id="Inscription" required = true) Inscrire
-            #Test.
-                sasdfdsfsfsfsfsfsfsfsfsflutdddddddddddddddddddddddddd
-            
-            script
-                include ../public/javascripts/inscription.js
+        .header
+            p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
+            h1 Mytwr
+        .topnavContainer
+            .container-fluid.text-right
+                    a(href="/") Retour page d'acceuil 
+        .container
+            block content
+                form(method='post', action ='ficheInscription', accept-charset='UTF-8')
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Votre Email : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="email" id = "Email" name="Email" required = true)
+                    .row    
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Mot de passe : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="password" id = "Mdp" name="Mdp" required = true)
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Nom : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="text" id = "Nom" name="Nom" required = true)
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Prenom : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="text" id = "Prenom" name="Prenom" required = true)
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Votre Nom d'utilisateur : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="text" id = "Utilisateur" name="Utilisateur" required = true)
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Âge : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="number" id = "Age" name="Age" min=0 max=100 required = true)
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Message profil : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="text" id = "Message" name="Message" required = true)
+                    .row
+                        .col-xs-2.col-sm-4.col-lg-6.text-right
+                            strong Fonction : 
+                        .col-xs-2.col-sm-4.col-lg-6.text-left 
+                            input(type="text" id = "Fonction" name="Fonction" required = true)
+                    button(type="submit" id="Inscription" required = true) Inscrire
+                script
+                    include ../public/javascripts/inscription.js
+                include include/footer.jade

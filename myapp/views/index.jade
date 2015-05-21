@@ -1,34 +1,41 @@
 extends layout
 
-block content
+block header
     p <img src="images/Logo.jpg" alt="Logo" class="Logo"/>
     h1 Mytwr
-    p(class="Connexion")
-        label(for="Pseudo") 
-        |Pseudo
-        input(type="text" name="Pseudo")
-        label(for="MDP")
-        |Mot de passe
-        input(type="password" name="MDP")
-        input(type="submit" value="Login")
-        </br>
-        a(href="/ficheInscription" class="buttonConnexion") Pas encore inscrit ? Inscrivez vous !
-block content1
-    p salyt
-block content2
-    label(for="Nom")
-    |Pseudo
-    input(type="text" id="Nom")
-    </br>
-    form(id="Formulaire")
-        textarea(id="Twrer" placeholder="Tweet")
-    input(type="submit" id="Envoyer" value="Envoyer")
-    #ZoneTexte
-    script
-        include ../public/javascripts/heure.js
-block content3
-    nav
-        ul
-            a(href="/Profil") Profil</br>
-            a(href="/views/Follower.jade") Follower</br>
-            a(href="/views/Following.jade") Following
+
+block navbarcontent
+    .col-xs-2.col-sm-2.col-lg-2
+        p.
+          #{session.user.nom}
+          #{session.user.prenom}
+    .col-xs-2.col-xs-offset-1.col-sm-3.col-sm-offset-5.col-lg-4.col-lg-offset-6.text-right
+        a(href="/Profil") Profil 
+        a(href="/deconnecter") Déconnecter
+block content
+    .row
+        .container-fluid.CadreTweet
+            form(method='post', action ='envoyerTweet', accept-charset='UTF-8')
+                .row    
+                     strong Titre de votre Tweet : 
+                     input(type="text" id = "titre" name="titre" required = true )        
+                .row.text-center      
+                    strong Mon Tweet :
+                .row.text-center 
+                    textarea(type="text" id = "message" name="message" required=true cols=80 rows=8)
+                .row.text-center    
+                    button(type="submit" id="Envoyer" ) Changer
+    .Tweets     
+        each twt in session.Tweets
+            - if (twt.auteur == session.user.nomUtilisateur)
+                p.
+                    Titre : #{twt.titre} à #{twt.date} par #{twt.auteur}
+                    </br>
+                    #{twt.texte} 
+block Tweet
+    .Tweets
+        each twt in session.Tweets
+             p.
+                Titre : #{twt.titre} à #{twt.date} par #{twt.auteur}
+                </br>
+                #{twt.texte} 
